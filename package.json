@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -18,5 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.14",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0"
   }
 }
