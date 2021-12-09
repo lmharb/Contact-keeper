@@ -16,7 +16,7 @@ const ContactState = (props) => {
   const initialState = {
     contacts: [
       {
-        _id: "61af5a3310aea5188f358a8e",
+        id: "61af5a3310aea5188f358a8e",
         user: "61af4c8d0fb7ad244ee85825",
         name: "Bob Will",
         email: "bob.w.p@gmail.com",
@@ -24,7 +24,7 @@ const ContactState = (props) => {
         type: "professional",
       },
       {
-        _id: "61af5a1bbbb3b3d851273f3f",
+        id: "61af5a1bbbb3b3d851273f3f",
         user: "61af4c8d0fb7ad244ee85825",
         name: "Bob Willi",
         email: "bob.w.p@gmail.com",
@@ -32,7 +32,7 @@ const ContactState = (props) => {
         type: "personal",
       },
       {
-        _id: "61af59cb7891d63ac87d366c",
+        id: "61af59cb7891d63ac87d366c",
         user: "61af4c8d0fb7ad244ee85825",
         name: "Bob Williams",
         email: "bob.w.p@gmail.com",
@@ -40,6 +40,7 @@ const ContactState = (props) => {
         type: "personal",
       },
     ],
+    current: null,
   }
 
   const [state, dispatch] = useReducer(contactReducer, initialState)
@@ -50,19 +51,41 @@ const ContactState = (props) => {
     dispatch({ type: ADD_CONTACT, payload: contact })
   }
   // Delete Contact
+  const deleteContact = (id) => {
+    dispatch({ type: DELETE_CONTACT, payload: id })
+  }
 
   // Set Current Contact
+  const setCurrent = (contact) => {
+    dispatch({ type: SET_CURRENT, payload: contact })
+  }
 
   // Clear Current Contact
-
+  const clearCurrent = () => {
+    dispatch({ type: CLEAR_CURRENT })
+  }
   // Update Contact
+
+  const updateContact = (contact) => {
+    dispatch({ type: UPDATE_CONTACT, payload: contact })
+  }
 
   // Filter Contacts
 
   // Clear Filter
 
   return (
-    <ContactContext.Provider value={{ contacts: state.contacts, addContact }}>
+    <ContactContext.Provider
+      value={{
+        contacts: state.contacts,
+        current: state.current,
+        addContact,
+        deleteContact,
+        setCurrent,
+        clearCurrent,
+        updateContact,
+      }}
+    >
       {props.children}
     </ContactContext.Provider>
   )
