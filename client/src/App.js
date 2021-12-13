@@ -6,6 +6,7 @@ import About from "./components/pages/About"
 import Register from "./components/auth/Register"
 import Login from "./components/auth/Login"
 import Alerts from "./components/layout/Alerts"
+import PrivateRoute from "./components/routing/PrivateRoute"
 
 import ContactState from "./context/contact/ContactState"
 import AuthState from "./context/auth/AuthState"
@@ -28,7 +29,14 @@ const App = () => {
               <div className='container'>
                 <Alerts />
                 <Routes>
-                  <Route path='/' element={<Home />} />
+                  <Route
+                    path='/'
+                    element={
+                      <PrivateRoute>
+                        <Home />
+                      </PrivateRoute>
+                    }
+                  />
                   <Route path='/about' element={<About />} />
                   <Route path='/register' element={<Register />} />
                   <Route path='/login' element={<Login />} />
