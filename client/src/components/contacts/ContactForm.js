@@ -5,7 +5,6 @@ const ContactForm = () => {
   const contactContext = useContext(ContactContext)
 
   const { addContact, current, clearCurrent, updateContact } = contactContext
-  console.log(contactContext)
 
   useEffect(() => {
     if (current !== null) {
