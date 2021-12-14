@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #003699;
+  --primary-color: #170099;
   --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -94,6 +94,7 @@ img {
 .card {
   padding: 1rem;
   border: #ccc 1px dotted;
+  border-radius: 0.3rem;
   margin: 0.7rem 0;
 }
 
@@ -206,6 +207,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border-radius: 0.2rem;
 }
 
 .btn-link {
