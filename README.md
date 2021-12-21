@@ -6,4 +6,5 @@ Enables registered and logged user to create & manage contacts
 - REST API, CRUD database, localStorage
 - Registration & auth using JSONWebtoken
 - State Management using React useContext & useReducer
-- Hosted on Heroku (might wait a little for website loading) : https://floating-retreat-82895.herokuapp.com/login
+- Hosted on Heroku : https://floating-retreat-82895.herokuapp.com/login
+  You might have to wait a few seconds for the website to load)
